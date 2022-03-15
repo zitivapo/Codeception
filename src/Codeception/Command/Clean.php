@@ -17,7 +17,7 @@ class Clean extends Command
 {
     use Shared\Config;
 
-    public function getDescription()
+    public function getDescription(): string
     {
         return 'Recursively cleans log and generated code';
     }
@@ -33,7 +33,7 @@ class Clean extends Command
     private function cleanProjectsRecursively(OutputInterface $output, $projectDir)
     {
         $config = Configuration::config($projectDir);
-        
+
         $logDir = Configuration::logDir();
         $output->writeln("<info>Cleaning up output " . $logDir . "...</info>");
         FileSystem::doEmptyDir($logDir);
